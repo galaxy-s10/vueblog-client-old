@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <link rel="stylesheet" href="./prism.css">
+    <script src="./prism.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            // 	$("button").click(function(){
+            // 		$.ajax({url:"/api/narticle",success:function(result){
+            // 			console.log(result)
+            // 		}});
+            // 	});
+            // });
+            // function say(callback) {
+            // 	setTimeout(() => {
+            // 		console.log('11111')
+            // 		callback()
+            // 	}, 1000)
+            // }
+            // say(() => {
+            // 	console.log('2222')
+            // })
+            // var str = "hel'lo i am b'ey";
+            // var newstr = str.replace(/'/g, "s\\'")
+            // console.log(newstr)
+            // console.log(str.replace("e","aaa"))
+            $("button").click(function () {
+                // say(() => {
+                // 	console.log('2222')
+                // })
+                // console.log('2222')
+                $("#test2").html("<pre class='language-javascript'><code>say(() =&gt; {console.log('2222')})</code></pre>");
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="test2"></div>
+    <!-- <div id="div1"><h2>使用 jQuery AJAX 修改文本内容</h2></div> -->
+    <button>获取其他内容</button>
+
+    <pre class="language-javascript"><code>say(() =&gt; {
+        console.log('2222')
+    })</code></pre>
+</body>
+
+</html>
