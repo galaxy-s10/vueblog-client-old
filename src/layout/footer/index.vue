@@ -6,7 +6,7 @@
       <span class="ani">(='◡'=)☆</span>
     </p>
     <p>托管于阿里云(学生机) | 使用七牛云对象存储</p>
-    <p>粤ICP备19114467号</p>
+    <a href="http://www.beian.miit.gov.cn" target="__blank" class="bah">粤ICP备19114467号</a>
   </div>
 </template>
 
@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+.bah {
+  text-decoration: none;
+  color: #666;
+}
 p {
   margin: 0;
   padding: 0;
