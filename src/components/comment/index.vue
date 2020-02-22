@@ -69,7 +69,7 @@
                 </div>
                 <div>
                   回复
-                  <span style="color:#48dbfb">@{{item.to_username}}:</span>
+                  <span style="color:#48dbfb">@{{item.to_user.username}}:</span>
                   {{item.content}}
                 </div>
                 <div style>
@@ -154,7 +154,7 @@ export default {
         from_user,
         content,
         to_commentid,
-        to_username,
+        to_userid,
         date
       } = item;
       if (this.$store.state.user.token) {
@@ -166,7 +166,7 @@ export default {
         } else {
           var to_commentid = to_commentid;
         }
-        var to_username = from_user.username;
+        var to_userid = from_userid;
         var date = new Date();
         var date = format(date);
         addcomment({
@@ -174,7 +174,7 @@ export default {
           from_userid,
           content,
           to_commentid,
-          to_username,
+          to_userid,
           date
         })
           .then(res => {
