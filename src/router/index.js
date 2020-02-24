@@ -21,19 +21,6 @@ var router = new VueRouter({
                 }
             ],
         },
-        // {
-        //     path: '/login',
-        //     component: layout,
-        //     children: [
-        //         {
-        //             // 当 / 匹配成功，
-        //             // allarticle 会被渲染在 layout 的 <router-view> 中
-        //             path: '',
-        //             component: () => import('@/components/login'),
-        //             meta: { title: '登录' }
-        //         }
-        //     ],
-        // },
         {
             path: '/article/:id',
             component: layout,
@@ -99,7 +86,7 @@ var router = new VueRouter({
                 }
             ],
         },
-        // { path: '*', component: err, meta: { title: "404" } },
+        { path: '*', component: () => import('@/components/err'), meta: { title: "404" } },
     ]
 })
 

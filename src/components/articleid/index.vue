@@ -17,6 +17,7 @@
           <div class="mce-content-body" v-html="item.content"></div>
           <!-- <div v-html="item.content"></div> -->
         </div>
+        <div style="text-align:right;font-size:14px;">最后更新于：{{format(item.updatedAt)}}</div>
       </div>
       <el-divider>评论一下吧 ！</el-divider>
       <div>
