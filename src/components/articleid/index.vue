@@ -11,7 +11,7 @@
           <span class="el-icon-view"></span>
           {{item.click}}浏览
         </p>
-        <img v-if="item.img!='无'" :src="item.img" alt="item.img" width="100%" height="460" />
+        <img v-if="item.img!=null" :src="item.img" alt="item.img" width="100%" height="460" />
         <img v-else src="../../assets/imgs/无图.png" alt />
         <div>
           <div class="mce-content-body" v-html="item.content"></div>

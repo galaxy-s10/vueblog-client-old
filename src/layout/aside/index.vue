@@ -18,7 +18,7 @@
         <div v-for="(item,index) in hotlist" :key="index" style="margin-bottom:10px;display:flex">
           <div class="aside-l">
             <router-link
-              v-if="item.img!='无'"
+              v-if="item.img!=null"
               :to="'/article/'+item.id"
               tag="div"
               :style="{backgroundImage: 'url'+ '('+item.img+')'}"

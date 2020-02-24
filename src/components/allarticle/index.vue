@@ -3,7 +3,7 @@
     <article v-for="(item,index) in pagelist" :key="index" class="article-con">
       <div class="article-l">
         <router-link
-          v-if="item.img!='无'"
+          v-if="item.img!=null"
           :to="'/article/'+item.id"
           tag="div"
           :style="{backgroundImage: 'url'+ '('+item.img+')'}"
