@@ -166,7 +166,7 @@ export default {
         } else {
           var to_commentid = to_commentid;
         }
-        var to_userid = from_userid;
+        var to_userid = item.from_userid;
         var date = new Date();
         var date = format(date);
         addcomment({
