@@ -88,7 +88,6 @@ const article = {
             articlepage(ordername, orderby, type, nowpage, state.pagesize)
                 .then(res => {
                     commit('pagelist', res.pagelist.rows)
-                    console.log(res)
                     commit('count', res.pagelist.count)
                 })
         },
@@ -122,26 +121,6 @@ const article = {
                     commit('hotlist', res.pagelist.rows)
                 })
         },
-        async findarticle({ commit }, data) {
-            var { keyword, id } = data
-            await findarticle(id, keyword)
-                .then(res => {
-                    if (keyword) {
-                        commit('search', res.data)
-                    } else {
-                        commit('data', res.data)
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        },
-        async articlehistory({ commit }, data) {
-            var { ordername, orderby } = data
-            var data = await articlelist(ordername, orderby)
-            commit("count", data.list.count)
-            commit("list", data.list.rows)
-        }
     }
 }
 

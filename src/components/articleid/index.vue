@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import Prism from "../../assets/prismjs/prism.js";
 import comment from "../comment";
 import { findarticle } from "@/api/article";
 import { commentlist, addcomment } from "@/api/comment";
@@ -57,9 +56,21 @@ export default {
       data: null
     };
   },
-  beforeRouteUpdate(to, from, next) {
-    this.articleinfo(to.params.id);
-    this.commentlist(to.params.id);
+  async beforeRouteEnter(to, from, next) {
+    var res = await findarticle(to.params.id);
+    var ress = await commentlist(to.params.id);
+    next(vm => {
+      vm.data = res.list.rows;
+      vm.list = ress.lists;
+      vm.count = ress.count;
+    });
+  },
+  async beforeRouteUpdate(to, from, next) {
+    var res = await findarticle(to.params.id);
+    var ress = await commentlist(to.params.id);
+    this.data = res.list.rows;
+    this.list = ress.lists;
+    this.count = ress.count;
     next();
   },
   methods: {
@@ -111,22 +122,10 @@ export default {
         .catch(err => {
           console.log(err);
         });
-    },
-    // 文章信息
-    articleinfo(id) {
-      findarticle(id).then(res => {
-        this.data = res.list.rows;
-        setTimeout(() => {
-          Prism.highlightAll();
-        }, 0);
-      });
     }
   },
   created() {},
-  mounted() {
-    this.articleinfo(this.$route.params.id);
-    this.commentlist(this.$route.params.id);
-  },
+  mounted() {},
   computed: {
     key() {
       return this.$route.path;
@@ -136,6 +135,4 @@ export default {
 </script>
 
 <style scoped>
-@import "../../assets/tinymce/skins/content/default/content.css";
-@import "../../assets/prismjs/prism.css";
 </style>

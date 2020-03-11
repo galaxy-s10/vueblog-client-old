@@ -21,10 +21,14 @@
 </template>
 
 <script>
+import { articlelist } from "../../api/article";
 import { format } from "@/utils/format.js";
 export default {
   data() {
-    return {};
+    return {
+      history: null,
+      total: null
+    };
   },
   methods: {
     // 格式化时间
@@ -32,21 +36,20 @@ export default {
       return format(time);
     }
   },
-  created() {},
-  computed: {
-    history() {
-      return this.$store.state.article.list;
-    },
-    total() {
-      return this.$store.state.article.count;
-    }
-  },
-  mounted() {
-    this.$store.dispatch("articlehistory", {
+  beforeRouteEnter(to, from, next) {
+    articlelist({
       ordername: "date",
       orderby: "desc"
+    }).then(res => {
+      next(vm => {
+        vm.history = res.list.rows;
+        vm.total = res.list.count;
+      });
     });
-  }
+  },
+  created() {},
+  mounted() {},
+  computed: {}
 };
 </script>
 

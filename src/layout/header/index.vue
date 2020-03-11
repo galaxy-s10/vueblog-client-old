@@ -11,7 +11,7 @@
           </div>
           <div class="nav">
             <ul class="navmenu">
-              <li v-for="(item,index) in navlist" :key="index">
+              <li v-for="(item,index) in navlist" :key="index" class="tcss">
                 <router-link :to="item.path" tag="span">
                   <span :class="item.icon"></span>
                   <span style="font-size:18px">{{item.title}}</span>
@@ -196,6 +196,7 @@ export default {
 </script>
 
 <style scoped>
+
 ul {
   margin: 0;
   padding: 0;
